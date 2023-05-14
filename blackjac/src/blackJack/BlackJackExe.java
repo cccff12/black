@@ -1,0 +1,74 @@
+package blackJack;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class BlackJackExe {
+	
+	public static void main(String[] args) {
+		// 게임 실행
+		
+		System.out.println("--------------게임 시작--------------");
+		Card card = new Card();
+		
+		Player player = new Player();
+		
+		Dealer dealer = new Dealer();
+
+		// main에서 생성한 객체 공유
+		Service service = new Service(dealer, player);
+		
+		// 덱 생성
+		List<Card> cardList = new ArrayList<>();
+		
+		cardList = service.makeCard();
+		
+		// 카드가 생성 되었는지 테스트 코드
+		/*
+		for(Card cd : cardList) {
+			System.out.print(cd.getPattern() + "\t");
+			System.out.print(cd.getNumber() + "\t");
+			System.out.println();
+		}
+		*/
+		Scanner scan = new Scanner(System.in);
+		while(true) {
+			
+			service.giveCard(cardList); // 첫 두장 받기
+			
+			
+			
+			// 딜러가 받은 카드가 17 미만일때 한장 더 뽑는method, 
+			// 21이 넘었을 경우 패배하는 매서드
+			
+			service.dealerCardcondition();
+			service.dealerCardcondition(cardList);
+			
+			
+			// 플레이어가 원하면 한장을 받는 method
+			System.out.println("플레이어는 한장 더 받길 원하시면 y를 입력하세요");
+			while(true) {
+				if(scan.nextLine().equals("y")) {
+					service.hitCard(cardList);
+				} else {
+					break;
+				}
+			}
+			
+			service.whoWin();
+			System.out.println("-------------------------------");
+			System.out.println("종료를 원하면 Q를 누르세요");
+			if(scan.nextLine().equals("Q")) {
+				break;
+			}
+			// 승패 결정 후 플레이어와 딜러의 카드 리스트 리셋
+			service.resetList();
+			
+		}
+		
+		scan.close();
+		
+	}
+
+}
