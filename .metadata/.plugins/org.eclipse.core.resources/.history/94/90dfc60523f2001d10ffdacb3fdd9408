@@ -129,10 +129,6 @@ public class Service {
 	}
 
 	public void dealerexit() {
-		dsum = 0; // 새로 카드를 뽑았으니 초기화
-		for (Card card : dealerCard) {
-			dsum += Integer.valueOf(card.getNumber());// 초기화를 했으니 딜러 카드 합을 다시 덧셈
-		}
 		System.out.println(dsum);
 		if (dsum > 21) {
 			System.out.println("딜러의 카드 합이 " + dsum + "이 나와서 딜러가 패배");

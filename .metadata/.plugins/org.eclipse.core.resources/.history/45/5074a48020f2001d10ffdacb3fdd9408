@@ -100,7 +100,7 @@ public class Service {
 	int dsum = 0;// 밑의 두 메서드에 사용할 변수
 
 // 딜러가 받은 카드를 합산할 메서드
-	public void dealerCardcondition() {
+	public void dealerCardcondition1() {
 
 		for (Card card : dealerCard) {
 			dsum += Integer.valueOf(card.getNumber());
@@ -116,7 +116,6 @@ public class Service {
 			int rnd5 = (int) (Math.random() * card.size());
 			dealer.setCard(card.get(rnd5));
 			dCardSave(card.get(rnd5)); // 딜러 카드 추가
-
 			card.remove(rnd5);// 카드 삭제
 			System.out.println("딜러 카드 리스트");
 
@@ -128,12 +127,14 @@ public class Service {
 
 	}
 
-	public void dealerexit() {
-		dsum = 0; // 새로 카드를 뽑았으니 초기화
+	public void dealerCardcondition2() {
+
 		for (Card card : dealerCard) {
-			dsum += Integer.valueOf(card.getNumber());// 초기화를 했으니 딜러 카드 합을 다시 덧셈
+			dsum += Integer.valueOf(card.getNumber());
 		}
-		System.out.println(dsum);
+	}
+	
+	public void dealerexit() {
 		if (dsum > 21) {
 			System.out.println("딜러의 카드 합이 " + dsum + "이 나와서 딜러가 패배");
 			System.exit(0);
