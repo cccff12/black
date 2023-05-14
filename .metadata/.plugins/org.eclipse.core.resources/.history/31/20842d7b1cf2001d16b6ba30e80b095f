@@ -116,11 +116,10 @@ public class Service {
 			System.out.println("딜러의 카드 합이 17미만이라 딜러의 드로우");
 			int rnd5 = (int) (Math.random() * card.size());
 			dealer.setCard(card.get(rnd5));
-			dCardSave(card.get(rnd5)); //딜러 카드 추가
-			card.remove(rnd5);//카드 삭제
+			card.remove(rnd5);
 			System.out.println("딜러 카드 리스트");
 			
-			for (Card car : dealerCard) { //17 미만일시 가진 카드 출력
+			for (Card car : dealerCard) {
 				System.out.print(car.getPattern() + "-");
 				System.out.print(car.getNumber() + "\t");
 			}

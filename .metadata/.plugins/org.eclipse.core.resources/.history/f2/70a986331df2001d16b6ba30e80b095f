@@ -116,7 +116,7 @@ public class Service {
 			System.out.println("딜러의 카드 합이 17미만이라 딜러의 드로우");
 			int rnd5 = (int) (Math.random() * card.size());
 			dealer.setCard(card.get(rnd5));
-			dCardSave(card.get(rnd5)); //딜러 카드 추가
+			dCardSave(card.get(rnd5));
 			card.remove(rnd5);//카드 삭제
 			System.out.println("딜러 카드 리스트");
 			

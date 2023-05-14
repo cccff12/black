@@ -39,14 +39,11 @@ public class BlackJackExe {
 			
 			
 			
-			/*
-			 * 여기추가
-			 */
+			// 딜러가 받은 카드가 17 미만일때 한장 더 뽑는method, 
+			// 21이 넘었을 경우 패배하는 매서드
 			service.dealerCardcondition();
 			service.dealerCardcondition(cardList);
-			/*
-			 * 여기까지
-			 */
+			
 			
 			// 플레이어가 원하면 한장을 받는 method
 			System.out.println("플레이어는 한장 더 받길 원하시면 y를 입력하세요");
